@@ -1,35 +1,22 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { SearchPlaceInput } from "./components/SearchPlaceInput/SearchPlaceInput";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
+    <section
+      className={`bg-airpalsGreyBackground flex flex-col items-center justify-center p-5 h-screen w-screen text- [&>h6]:text-md [&>h6]:text-airpalsGreyFont [&>h6]:font-semibold`}
+    >
+      <h1 className="text-2xl font-bold mb-10">Where are you located?</h1>
+      <h2 className="text-1xl font-semibold mb-3">
+        So we know where to drop off the stuff
+      </h2>
+      <h6>We won't share you adress</h6>
+      <h6>With your ex(or whoever).</h6>
+      <SearchPlaceInput />
+      <p className="absolute bottom-5 text-xs text-airpalsGreyFont">
+        Made with 🤍 by CRS.DEV_
       </p>
-    </>
-  )
+    </section>
+  );
 }
 
-export default App
+export default App;
