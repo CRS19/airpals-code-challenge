@@ -22,7 +22,7 @@ describe("App tests - ", () => {
     expect(
       screen.getByText("So we know where to drop off the stuff")
     ).toBeDefined();
-    expect(screen.getByText("We won't share you adress")).toBeDefined();
+    expect(screen.getByText("We won't share you address")).toBeDefined();
     expect(screen.getByText("With your ex(or whoever).")).toBeDefined();
 
     const form = await screen.findByTestId("form-testid");

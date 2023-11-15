@@ -34,3 +34,16 @@ npm install
 # Initialize the web app as developer mode.
 npm run dev
 ```
+
+## Testing
+
+To run the automated tests please run the follow commands on terminal.
+
+```bash
+# Create coverage report
+npm run coverage
+
+# Run unit tests
+npm run test
+
+```

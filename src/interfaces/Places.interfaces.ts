@@ -29,13 +29,13 @@ export interface Term {
   value: string;
 }
 
-export interface IAdressDetailsResponse {
+export interface IAddressDetailsResponse {
   html_attributions: string[];
-  result: IAdressDetail;
+  result: IAddressDetail;
   status: string;
 }
 
-export interface IAdressDetail {
+export interface IAddressDetail {
   address_components: AddressComponent[];
   adr_address: string;
   formatted_address: string;
