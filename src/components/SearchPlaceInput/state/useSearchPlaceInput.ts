@@ -28,14 +28,12 @@ export const useSearchPlaceInput = () => {
   };
 
   const getAutoComplete = async (address: string) => {
-    console.log("GET AUTO COMPLETE CALLED");
     const response = await fetch(
       `${
         import.meta.env.VITE_GOOGLE_MAPS_AUTOCOMPLETE_URL
       }?input=${address}&key=${import.meta.env.VITE_GOOGLE_API_KEY}`
     );
     const data: { predictions: IPlacesAutocomplete[] } = await response.json();
-    console.log(data);
 
     setAutoCompleteInfo(data.predictions);
   };
@@ -47,7 +45,6 @@ export const useSearchPlaceInput = () => {
       }?place_id=${placeId}&key=${import.meta.env.VITE_GOOGLE_API_KEY}`
     );
     const data: IAddressDetailsResponse = await response.json();
-    console.log("los detalles son ->", data);
 
     setSelectedAddressDetails(data.result);
   };
