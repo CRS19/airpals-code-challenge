@@ -9,7 +9,7 @@ import { MODAL_TEXTS } from "../../../constants/ModalTexts";
 import { IModalText } from "../../../interfaces/ModalTexts.interfaces";
 
 export const useSearchPlaceInput = () => {
-  const [timerId, setTimerId] = useState<number | null>(null);
+  const [timerId, setTimerId] = useState<NodeJS.Timeout | null>(null);
   const [openModal, setOpenModal] = useState(false);
   const [modalTexts, setModalTexts] = useState<IModalText>(
     MODAL_TEXTS.validZipCode
@@ -28,6 +28,7 @@ export const useSearchPlaceInput = () => {
   };
 
   const getAutoComplete = async (address: string) => {
+    console.log("GET AUTO COMPLETE CALLED");
     const response = await fetch(
       `${
         import.meta.env.VITE_GOOGLE_MAPS_AUTOCOMPLETE_URL
