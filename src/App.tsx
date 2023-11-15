@@ -9,7 +9,7 @@ function App() {
       <h2 className="text-1xl font-semibold mb-3">
         So we know where to drop off the stuff
       </h2>
-      <h6>We won't share you adress</h6>
+      <h6>We won't share you address</h6>
       <h6>With your ex(or whoever).</h6>
       <SearchPlaceInput />
 

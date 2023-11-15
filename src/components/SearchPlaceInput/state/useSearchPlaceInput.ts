@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import {
-  IAdressDetail,
-  IAdressDetailsResponse,
+  IAddressDetail,
+  IAddressDetailsResponse,
   IPlacesAutocomplete,
 } from "../../../interfaces/Places.interfaces";
 import { AVAILABLE_ZIP_CODES } from "../../../constants/AvaiableZipCodes";
@@ -9,7 +9,7 @@ import { MODAL_TEXTS } from "../../../constants/ModalTexts";
 import { IModalText } from "../../../interfaces/ModalTexts.interfaces";
 
 export const useSearchPlaceInput = () => {
-  const [timerId, setTimerId] = useState<number | null>(null);
+  const [timerId, setTimerId] = useState<NodeJS.Timeout | null>(null);
   const [openModal, setOpenModal] = useState(false);
   const [modalTexts, setModalTexts] = useState<IModalText>(
     MODAL_TEXTS.validZipCode
@@ -18,7 +18,7 @@ export const useSearchPlaceInput = () => {
   const [selectedAddress, setSelectedAddress] =
     useState<IPlacesAutocomplete | null>(null);
   const [selectedAddressDetails, setSelectedAddressDetails] =
-    useState<IAdressDetail | null>(null);
+    useState<IAddressDetail | null>(null);
   const [autoCompleteInfo, setAutoCompleteInfo] = useState<
     IPlacesAutocomplete[]
   >([]);
@@ -28,6 +28,7 @@ export const useSearchPlaceInput = () => {
   };
 
   const getAutoComplete = async (address: string) => {
+    console.log("GET AUTO COMPLETE CALLED");
     const response = await fetch(
       `${
         import.meta.env.VITE_GOOGLE_MAPS_AUTOCOMPLETE_URL
@@ -39,13 +40,13 @@ export const useSearchPlaceInput = () => {
     setAutoCompleteInfo(data.predictions);
   };
 
-  const getAdressDetails = async (placeId: string) => {
+  const getAddressDetails = async (placeId: string) => {
     const response = await fetch(
       `${
         import.meta.env.VITE_GOOGLE_MAPS_DETAILS_URL
       }?place_id=${placeId}&key=${import.meta.env.VITE_GOOGLE_API_KEY}`
     );
-    const data: IAdressDetailsResponse = await response.json();
+    const data: IAddressDetailsResponse = await response.json();
     console.log("los detalles son ->", data);
 
     setSelectedAddressDetails(data.result);
@@ -65,8 +66,8 @@ export const useSearchPlaceInput = () => {
     setOpenModal(showModal);
   };
 
-  const validateZipCode = (selectedAdressZipCode: string) =>
-    AVAILABLE_ZIP_CODES.includes(selectedAdressZipCode)
+  const validateZipCode = (selectedAddressZipCode: string) =>
+    AVAILABLE_ZIP_CODES.includes(selectedAddressZipCode)
       ? MODAL_TEXTS.validZipCode
       : MODAL_TEXTS.invalidZipCode;
 
@@ -86,7 +87,7 @@ export const useSearchPlaceInput = () => {
 
   useEffect(() => {
     if (selectedAddress) {
-      getAdressDetails(selectedAddress.place_id);
+      getAddressDetails(selectedAddress.place_id);
     }
   }, [selectedAddress]);
 

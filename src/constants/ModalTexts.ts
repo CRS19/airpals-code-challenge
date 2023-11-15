@@ -5,8 +5,8 @@ export const MODAL_TEXTS: {
   invalidZipCode: IModalText;
 } = {
   validZipCode: {
-    title: "Adress updated",
-    subTitle: "New adress added to your account",
+    title: "Address updated",
+    subTitle: "New address added to your account",
     content:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam deleniti, dolores impedit optio blanditiis sit delectus. Quidem corporis, odio quas sint tempore placeat dolor eos dolorum? Numquam quis ab dolorum.",
     callToAction: "Nisi ut aliquip ex ea commodo consequat.",
