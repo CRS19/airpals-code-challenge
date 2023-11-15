@@ -17,10 +17,12 @@ export const InfoModal = ({
         className={`justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none transition-opacity duration-300 ease-in-out ${
           showModal ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
+        data-testid="modal-testid"
         onClick={() => setShowModal(false)}
       >
         <div
           className="relative w-auto my-6 mx-auto max-w-xl"
+          data-testid="modal-content-testid"
           onClick={(e) => e.stopPropagation()}
         >
           <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
@@ -28,6 +30,7 @@ export const InfoModal = ({
               <button
                 className="p-1 ml-auto bg-transparent border-0 text-black float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
                 onClick={() => setShowModal(false)}
+                data-testid="close-btn"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -55,6 +58,7 @@ export const InfoModal = ({
               <button
                 className="text-white bg-[#FF99CE] rounded-3xl w-2/4 h-12 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                 type="button"
+                data-testid="undestood-btn"
                 onClick={() => setShowModal(false)}
               >
                 {modalTexts.btnText}

@@ -38,7 +38,7 @@ export const SearchPlaceInput = () => {
               key={`${response}-${index}`}
               className="flex border-b border-airpalsGreyBackground bg-white p-2 focus-within:outline-none focus-within:ring-0 h-20 shadow-md hover:bg-gray-100 transition-colors duration-500 ease-in-out cursor-pointer active:bg-gray-200 active:opacity-50 items-center"
               onClick={() => onClickResponse(response)}
-              data-testid="autocomplete-testid"
+              data-testid={`autocomplete-testid-${index}`}
             >
               <img className=" mr-2 px-2 h-5 " src="/icons/map-pin-gray.png" />{" "}
               <div className="flex flex-col">
