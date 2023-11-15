@@ -29,10 +29,9 @@ export const useSearchPlaceInput = () => {
 
   const getAutoComplete = async (address: string) => {
     const response = await fetch(
-      `${
-        import.meta.env.VITE_GOOGLE_MAPS_AUTOCOMPLETE_URL
-      }?input=${address}&key=${import.meta.env.VITE_GOOGLE_API_KEY}`,
-      { mode: "no-cors" }
+      `${import.meta.env.VITE_PROXY_SERVER_AUTOCOMPLETE}?input=${address}&key=${
+        import.meta.env.VITE_GOOGLE_API_KEY
+      }`
     );
     const data: { predictions: IPlacesAutocomplete[] } = await response.json();
 
@@ -42,9 +41,8 @@ export const useSearchPlaceInput = () => {
   const getAddressDetails = async (placeId: string) => {
     const response = await fetch(
       `${
-        import.meta.env.VITE_GOOGLE_MAPS_DETAILS_URL
-      }?place_id=${placeId}&key=${import.meta.env.VITE_GOOGLE_API_KEY}`,
-      { mode: "no-cors" }
+        import.meta.env.VITE_PROXY_SERVER_DETAILS_URL
+      }?place_id=${placeId}&key=${import.meta.env.VITE_GOOGLE_API_KEY}`
     );
     const data: IAddressDetailsResponse = await response.json();
 
